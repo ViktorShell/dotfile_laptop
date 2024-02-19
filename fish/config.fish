@@ -2,10 +2,6 @@ if status is-interactive
   # Commands to run in interactive sessions can go here
   function fish_greeting
     pfetch
-    set wacom (xsetwacom --list devices)
-    if test -n "$wacom"
-      xsetwacom --set "Wacom One by Wacom S Pen stylus" Rotate ccw
-    end
   end
 
   # Load tmux config
