@@ -9,6 +9,7 @@ sudo pacman -S fish \
   git \
   xclip \
   ranger \
+  ripgrep \
   tmux
 
 # AUR yay
