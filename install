@@ -47,8 +47,8 @@ mkdir $CONF/nvim/lua
 cp -r nvim/custom $CONF/nvim/lua
 
 # Install TMUX
-mkdir $CONF/tmux/plugins
-git clone https://github.com/tmux-plugins/tpm $CONF/tmux/plugins/tpm
+mkdir $CONF/tmux
+git clone https://github.com/tmux-plugins/tpm $CONF/tmux
 
 # Completed
 echo "--> Installation completed"
