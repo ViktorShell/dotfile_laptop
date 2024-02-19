@@ -14,7 +14,7 @@ if status is-interactive
   end
 
   alias clipboard="xclip -selection clipboard"
-  alias ss "systemctl suspend -i"
+  alias ss "systemctl suspend -i && i3lock -i $HOME/.config/i3/wallpaper/ocean.png"
   alias sn "sync; shutdown now"
   alias r "ranger"
   alias nv "nvim"
