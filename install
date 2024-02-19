@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Update and Install
+sudo pacman -Syu
+sudo pacman -S fish \
+  kitty \
+  neovim \
+  wget \
+  git \
+  xclip \
+  ranger \
+  tmux
+
+# AUR yay
+yay -S pfetch
+
+# Install
+CONF=$HOME/.config
+mkdir copy
+
+if [ -d $CONF/fish ]; then
+  mv $CONF/fish copy/fish
+fi
+
+if [ -d kitty ]; then
+  mv $CONF/kitty copy/kitty
+fi
+
+if [ -d $CONF/nvim ]; then
+  mv $CONF/nvim copy/nvim
+fi
+
+if [ -d $CONF/tmux ]; then
+  mkdir copy/tmux
+  mv $CONF/tmux/tmux.conf copy/tmux
+fi
+
+cp -r fish $CONF
+cp -r kitty $CONF
+cp -r tmux $CONF
+
+# Install NvChad
+rm -rf $HOME/.local/share/nvim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+mkdir $CONF/nvim/lua
+cp -r nvim/custom $CONF/nvim/lua
+
+# Install TMUX
+mkdir $CONF/tmux/plugins
+git clone https://github.com/tmux-plugins/tpm $CONF/tmux/plugins/tpm
+
+# Completed
+echo "--> Installation completed"
+echo "--> run TMUX for plugins"
