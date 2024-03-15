@@ -18,14 +18,6 @@ local plugins = {
     end,
   },
   {
-    "toppair/peek.nvim",
-    event = { "VeryLazy" },
-    build = "deno task --quiet build:fast",
-    config = function()
-      require "custom.configs.peek_markdown"
-    end,
-  },
-  {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
@@ -56,6 +48,12 @@ local plugins = {
       require("core.utils").load_mappings("crates")
     end,
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
 }
 
 return plugins

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update and Install
-sudo pacman -Syu
+sudo pacman -Syyu
 sudo pacman -S fish \
   kitty \
   neovim \
@@ -10,7 +10,10 @@ sudo pacman -S fish \
   xclip \
   ranger \
   ripgrep \
-  tmux
+  tmux \
+  eza \
+  zathura \
+  zathura-pdf-poppler
 
 # AUR yay
 yay -S pfetch
@@ -42,13 +45,16 @@ cp -r tmux $CONF
 
 # Install NvChad
 rm -rf $HOME/.local/share/nvim
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+rm -rf $HOME/.config/nvim
+mkdir $HOME/.config/nvim
+git clone https://github.com/NvChad/NvChad --depth 1
+mv NvChad/* $CONF/nvim/ && nvim
 mkdir $CONF/nvim/lua
-cp -r nvim/custom $CONF/nvim/lua
+cp -r nvim/custom $CONF/nvim/lua/ && nvim
 
 # Install TMUX
 mkdir $CONF/tmux
-git clone https://github.com/tmux-plugins/tpm $CONF/tmux
+git clone https://github.com/tmux-plugins/tpm $CONF/tmux/
 
 # Completed
 echo "--> Installation completed"

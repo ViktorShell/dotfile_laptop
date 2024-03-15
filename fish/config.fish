@@ -9,13 +9,21 @@ if status is-interactive
     tmux new -c "tmux source-file $HOME/.config/tmux/tmux.conf"
   end
 
+  # Zathura
+  function zath
+    zathura $argv[1] &> /dev/null & disown
+  end
+
   alias clipboard="xclip -selection clipboard"
   alias ss "systemctl suspend -i && i3lock -i $HOME/.config/i3/wallpaper/ocean.png"
   alias sn "sync; shutdown now"
   alias r "ranger"
+  alias ls "eza"
+  alias zt zath
   alias nv "nvim"
   alias push "pushd ."
   alias pop "popd"
+  alias screen "flameshot gui"
   alias tm tmux_source 
     
   export VISUAL=nvim;
